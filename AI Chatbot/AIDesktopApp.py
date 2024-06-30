@@ -39,7 +39,7 @@ class ChatApp(QWidget):
         self.input_box.setPlaceholderText("/w [Şehir Adı / City Name]       /c [Değer / Value][Döviz Kodu / Currency Code]")
 
         self.send_button = QPushButton()
-        self.send_button.setIcon(QIcon('../Assets/sendbutton.ico'))
+        self.send_button.setIcon(QIcon('Assets/sendbutton.ico'))
         icon_size = QSize(20, 20)
         self.send_button.setIconSize(icon_size)
         self.send_button.icon().pixmap(icon_size)
@@ -48,7 +48,7 @@ class ChatApp(QWidget):
         self.send_button.clicked.connect(self.send_message)
 
         self.attach_button = QPushButton()
-        self.attach_button.setIcon(QIcon('../Assets/attach-file.ico'))
+        self.attach_button.setIcon(QIcon('Assets/attach-file.ico'))
         icon_size = QSize(20, 20)
         self.attach_button.setIconSize(icon_size)
         self.attach_button.setToolTip('PDF Yükle (Deneysel)')
@@ -56,7 +56,7 @@ class ChatApp(QWidget):
         self.attach_button.clicked.connect(self.upload_pdf)
 
         self.video_button = QPushButton("Video İşlemeyi Çalıştır")
-        self.video_button.setIcon(QIcon('../Assets/videoprocessingbutton.ico'))
+        self.video_button.setIcon(QIcon('Assets/videoprocessingbutton.ico'))
         icon_size = QSize(100, 100)
         self.video_button.setIconSize(icon_size)
         self.video_button.setToolTip('Video İşlemeyi Çalıştır')
@@ -64,7 +64,7 @@ class ChatApp(QWidget):
         self.video_button.clicked.connect(self.open_object_detection)
 
         self.log_button = QPushButton("Kayıtları Aç")
-        self.log_button.setIcon(QIcon('../Assets/logbutton.ico'))
+        self.log_button.setIcon(QIcon('Assets/logbutton.ico'))
         icon_size = QSize(100, 100)
         self.log_button.setIconSize(icon_size)
         self.log_button.setToolTip('Kayıtları Aç')
@@ -72,7 +72,7 @@ class ChatApp(QWidget):
         self.log_button.clicked.connect(self.open_logs)
 
         self.run_search_button = QPushButton("Arama Motorunu Çalıştır")
-        self.run_search_button.setIcon(QIcon('../Assets/sebutton.ico'))
+        self.run_search_button.setIcon(QIcon('Assets/sebutton.ico'))
         icon_size = QSize(100, 100)
         self.run_search_button.setIconSize(icon_size)
         self.run_search_button.setToolTip('Arama Motorunu Çalıştır')
@@ -80,7 +80,7 @@ class ChatApp(QWidget):
         self.run_search_button.clicked.connect(self.open_search_engine)
 
         self.run_img_processing = QPushButton("Resim İşlemeyi Çalıştır")
-        self.run_img_processing.setIcon(QIcon('../Assets/imgprocessing.ico'))
+        self.run_img_processing.setIcon(QIcon('Assets/imgprocessing.ico'))
         icon_size = QSize(100, 100)
         self.run_img_processing.setIconSize(icon_size)
         self.run_img_processing.setToolTip('Resim İşlemeyi Çalıştır')
