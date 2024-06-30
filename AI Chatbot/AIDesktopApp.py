@@ -20,8 +20,8 @@ class ChatApp(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle('NeurAI')
-        self.setWindowIcon(QIcon('../Assets/brainlogo.ico'))
+        self.setWindowTitle('Chatbot')
+        #self.setWindowIcon(QIcon('ICON(OPTIONAL)'))
         self.setGeometry(100, 100, 800, 600)
         self.setStyleSheet("background-color: black")
 
@@ -36,7 +36,7 @@ class ChatApp(QWidget):
         self.input_box.installEventFilter(self)
         self.input_box.setStyleSheet("background-color: #BFBFBF; border-radius: 10; margin-top: 10; margin-bottom: 10")
 
-        self.input_box.setPlaceholderText("/w [Şehir Adı]       /c [Değer][Döviz Kodu]")
+        self.input_box.setPlaceholderText("/w [Şehir Adı / City Name]       /c [Değer / Value][Döviz Kodu / Currency Code]")
 
         self.send_button = QPushButton()
         self.send_button.setIcon(QIcon('../Assets/sendbutton.ico'))
@@ -160,7 +160,7 @@ class ChatApp(QWidget):
             currency_code = currency.upper()
 
             try:
-                url = f"https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_L5yRCN4dxlE9lBTvvPSKpE8C5kYV15KxNu2uL3Iy&currencies=EUR%2CUSD&base_currency=TRY"
+                url = f"https://api.freecurrencyapi.com/API-KEY"
                 response = requests.get(url)
                 data = response.json()
 
@@ -181,14 +181,14 @@ class ChatApp(QWidget):
         else:
             response = self.conversation.send_message(message)
 
-        bot_message = "NeurAI >>> " + response + "\n"
+        bot_message = "Chatbot >>> " + response + "\n"
         self.add_message_to_chat(bot_message)
 
         self.log_message(user_message)
         self.log_message(bot_message)
 
     def get_weather_data(self, city):
-        api_key = 'f815dfa3142ce116b8bb61758710e012'
+        api_key = 'OPENWEATHER/API-KEY'
         url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api_key}"
         response = requests.get(url)
 
