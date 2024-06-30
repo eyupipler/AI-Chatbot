@@ -14,7 +14,7 @@ def pdf_to_text(file_path):
 
 class Conversation:
     def __init__(self):
-        with open(r"C:\Users\eyupi\OneDrive\Masaüstü\Neurazum\model.txt", "r") as file:
+        with open(r"API-KEY/IN TXT FILE/PATH", "r") as file:
             api_key = file.read().strip()
 
         genai.configure(api_key=api_key)
@@ -51,17 +51,6 @@ class Conversation:
 
         self.convo = model.start_chat(history=[])
 
-    def send_message(self, message):
-        self.convo.send_message(message)
-        response_text = self.convo.last.text.replace("Gemini", "NeurAI").replace("Google", "BrAIn")
-        return response_text
-
-    def send_pdf(self, file_path):
-        pdf_text = pdf_to_text(file_path)
-        self.convo.send_message(pdf_text)
-        response_text = self.convo.last.text.replace("Gemini", "NeurAI").replace("Google", "BrAIn")
-        return response_text
-
 
 conversation = Conversation()
 
@@ -75,7 +64,7 @@ def main():
             response = conversation.send_pdf(file_path)
         else:
             response = conversation.send_message(message)
-        print("NeurAI: " + response)
+        print("Bot: " + response)
 
 if __name__ == "__main__":
     main()
