@@ -16,8 +16,8 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
 class DrawApp(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('Image Processing with NeurAI')
-        self.setWindowIcon(QIcon('../Assets/brainlogo.ico'))
+        self.setWindowTitle('Image Processing')
+        #self.setWindowIcon(QIcon('ICON(OPTIONAL)'))
         self.setGeometry(100, 100, 400, 400)
 
         self.canvas = QLabel()
@@ -65,28 +65,21 @@ class DrawApp(QWidget):
         self.last_point = None
         image_array = self.qimage_to_numpy(self.image)
 
-        # Resmi 0 ile 1 arasında ölçeklendirin
         image_array = image_array.astype('float32') / 255.0
 
-        # Tahmin etmek için modeli kullanın
         prediction = self.model.predict(image_array.reshape(1, 28, 28, 1))
 
-        # En yüksek olasılığa sahip sınıfı alın
         predicted_number = np.argmax(prediction)
 
-        # Tahmin edilen rakamı etikete yazdırın
         self.result_label.setText(f'Tahmin Edilen Rakam: {predicted_number}')
 
     def qimage_to_numpy(self, qimage):
-        # Resmi 28x28 boyutuna uygun şekilde boyutlandır
         resized_image = qimage.scaled(28, 28).convertToFormat(QImage.Format_Grayscale8)
 
-        # QImage'dan NumPy dizisine dönüştür
         buffer = resized_image.bits()
         buffer.setsize(resized_image.byteCount())
         image_array = np.frombuffer(buffer, dtype=np.uint8).reshape((28, 28, 1))
 
-        # NumPy dizisini normalize et
         image_array = image_array.astype('float32') / 255.0
 
         return image_array
