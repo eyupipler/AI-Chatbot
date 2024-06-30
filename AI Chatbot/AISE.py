@@ -12,8 +12,8 @@ from tkinter import messagebox
 class SEApp(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('NeurAI Search Engine')
-        self.setWindowIcon(QIcon('../Assets/brainlogo.ico'))
+        self.setWindowTitle('Neurazum Search Engine')
+        self.setWindowIcon(QIcon('Assets/neurazumicon.ico'))
         self.resize(800, 600)
 
         self.query_label = QLabel('Aramak istediğiniz şeyi yazın:')
@@ -22,7 +22,7 @@ class SEApp(QWidget):
         self.query_input.setStyleSheet("border-radius: 10")
 
         self.search_button = QPushButton()
-        self.search_button.setIcon(QIcon('../Assets/search.ico'))
+        self.search_button.setIcon(QIcon('Assets/search.ico'))
         self.search_button.setIconSize(QtCore.QSize(50, 50))
         self.search_button.setStyleSheet("background-color: transparent; border: none; color: white")
         self.search_button.setToolTip('Ara')
